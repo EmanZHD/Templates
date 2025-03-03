@@ -3,13 +3,21 @@
 
 <head>
     <style>
+        /* ---------General Styling--------- */
         * {
             border-radius: 0;
             box-sizing: border-box;
             padding: 0;
         }
 
-        nav,
+        .grid-container {
+            width: 100%;
+            height: 100vh;
+            display: grid;
+            grid: "nav nav nav" 70px "aside main main" 1fr "footer footer footer" 60px / 40% 1fr 1fr;
+            gap: 10px;
+        }
+
         aside,
         main,
         footer {
@@ -17,56 +25,74 @@
             place-items: center;
         }
 
-        .grid-container {
-            width: 100%;
-            height: 100vh;
-        }
-
-        nav {
-            background-color: lightblue;
-        }
-
-        aside {
-            background-color: lightgreen;
-        }
-
-        main {
-            background-color: lightpink;
-        }
-
-        footer {
-            background-color: lightgray;
-        }
-
-        /* ---------General Styling Above--------- */
-
-        .grid-container {
-            display: grid;
-            grid: "nav nav nav" 70px "aside main main" 1fr "footer footer footer" 60px / 40% 1fr 1fr;
-            gap: 10px;
-        }
-
-        nav {
-            grid-area: nav;
-        }
+        /* ---------aside style--------- */
 
         aside {
             grid-area: aside;
+            background-color: lightgreen;
         }
+
+        /* ---------main style--------- */
 
         main {
             grid-area: main;
+            background-color: lightpink;
         }
+
+        /* ---------footer style--------- */
 
         footer {
             grid-area: footer;
+            background-color: lightgray;
+        }
+
+        /* ---------nav style--------- */
+        nav {
+            grid-area: nav;
+            background-color: lightblue;
+            /* display: grid; */
+            /* place-items: center; */
+            display: flex;
+            justify-content: space-between;
+            padding: 0 40px;
+        }
+
+        .nav-left {
+            display: flex;
+            gap: 10px;
+        }
+
+        .nav-right {
+            display: flex;
+            /* gap: 10px; */
+        }
+
+        /* ---------buttons style--------- */
+        button {
+            border: none;
+            background: none;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+
+        button:hover {
+            background-color: rgba(255, 255, 255, 0.3);
+            /* Hover effect */
         }
     </style>
 </head>
 
 <body>
     <div class="grid-container">
-        <nav>Navbar</nav>
+        <nav>
+            <div class="nav-left">
+                <button class="nav-home">Home</button>
+                <button class="nav-about">About</button>
+            </div>
+            <div class="nav-right">
+                <button class="nav-log">Log Out</button>
+            </div>
+        </nav>
         <aside>Sidebar</aside>
         <main>Main Content</main>
         <footer>Footer</footer>
